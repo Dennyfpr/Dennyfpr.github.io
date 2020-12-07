@@ -1,0 +1,17 @@
+{
+    "name": "DEF Sports",
+    "short_name": "DEF",
+    "description": "Dream 'Em Football",
+    "start_url": "/index.html",
+    "display": "standalone",
+    "background_color": "#00897B",
+    "theme_color": "#00897B",
+    "gcm_sender_id": "134495586219",
+    "icons": [
+        {
+            "src": "assets/logo-512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}
