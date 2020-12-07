@@ -26,7 +26,9 @@ workbox.precaching.precacheAndRoute([
   { url: 'https://unpkg.com/snarkdown@1.0.2/dist/snarkdown.umd.js', revision: '1' },
   { url: 'https://fonts.googleapis.com/icon?family=Material+Icons', revision: '1' },
   { url: 'https://fonts.gstatic.com/s/materialicons/v67/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2', revision: '1' },
-]);
+], {
+ignoreUrlParametersMatching: [/.*/]
+});
 
 workbox.routing.registerRoute(
   new RegExp('https://api.football-data.org/v2/'),
@@ -34,63 +36,6 @@ workbox.routing.registerRoute(
         cacheName: 'api'
     })
 );
-
-workbox.routing.registerRoute(
-  new RegExp('/index.html'),
-    workbox.strategies.staleWhileRevalidate({
-        cacheName: 'index'
-    })
-);
-
-workbox.routing.registerRoute(
-  new RegExp('/nav.html'),
-    workbox.strategies.staleWhileRevalidate({
-        cacheName: 'nav'
-    })
-);
-
-workbox.routing.registerRoute(
-  new RegExp('/uefaTeam.html'),
-    workbox.strategies.staleWhileRevalidate({
-        cacheName: 'teams'
-    })
-);
-
-workbox.routing.registerRoute(
-  new RegExp('/pages/'),
-    workbox.strategies.staleWhileRevalidate({
-        cacheName: 'pages'
-    })
-);
-
-workbox.routing.registerRoute(
-  new RegExp('/css/'),
-    workbox.strategies.staleWhileRevalidate({
-        cacheName: 'css'
-    })
-);
-
-workbox.routing.registerRoute(
-  new RegExp('/js/'),
-    workbox.strategies.staleWhileRevalidate({
-        cacheName: 'js'
-    })
-);
-
-workbox.routing.registerRoute(
-  new RegExp('/assets/'),
-    workbox.strategies.staleWhileRevalidate({
-        cacheName: 'assets'
-    })
-);
-
-workbox.routing.registerRoute(
-  new RegExp('/manifest.json'),
-    workbox.strategies.staleWhileRevalidate({
-        cacheName: 'manifest'
-    })
-);
-
 
 self.addEventListener('push', function(event) {
   var body;
